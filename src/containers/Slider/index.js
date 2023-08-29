@@ -10,14 +10,12 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
-  const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
-      5000
-    );
-  };
+  
   useEffect(() => {
-    nextCard();
+    const nextCard = setTimeout(
+      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0),
+      5000)
+    return () => clearTimeout(nextCard); // deplacer timeout dans use effect error console
   });
   return (
     <div className="SlideCardList">
@@ -43,10 +41,11 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_,radioIdx) => (
                 <input
-                  key={`${event.id}`}
+                  key={`${_.title}`} // error console
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx}
+                  readOnly
                 />
               ))}
             </div>
