@@ -13,7 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {data} = useData();
+  const {data} = useData();      // change function
   
    const last = data?.events.sort((first, next) =>
      new Date(next.date) - new Date(first.date))[0];
@@ -119,7 +119,7 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        {last && (
+        {last && (      // appel last data
             <EventCard
               imageSrc={last?.cover}
               title={last?.title}
