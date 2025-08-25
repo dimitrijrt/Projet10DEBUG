@@ -83,12 +83,12 @@ const Page = () => {
             position="Animateur"
           />
           <PeopleCard
-            imageSrc="/images/amy-hirschi-b3AYk8HKCl0-unsplash1.png"
+             imageSrc={`${process.env.PUBLIC_URL}/images/amy-hirschi-b3AYk8HKCl0-unsplash1.png`}
             name="Christine"
             position="VP animation"
           />
           <PeopleCard
-            imageSrc="/images/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash.png"
+           imageSrc={`${process.env.PUBLIC_URL}/images/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash.png`}
             name="Isabelle"
             position="VP communication"
           />
